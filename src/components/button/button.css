@@ -1,0 +1,61 @@
+.button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 45px;
+    gap: 10px;
+
+    position: absolute;
+    width: 249px;
+    height: 56px;
+
+    /* #001EB9 */
+
+    background: #001EB9;
+    /* btn-shadow blue */
+
+    box-shadow: 4px 4px 30px rgba(93, 169, 185, 0.2);
+    border-radius: 10px;
+}
+
+.button p {
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    /* identical to box height */
+
+
+    /* #F7F7F7 */
+
+    color: #F7F7F7;
+}
+
+.icon-start {
+    background-image : url(../../assets/starred.svg);
+    background-size: cover;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+}
+.favbutton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-left: 30%;
+    position: absolute;
+    width: 56px;
+    height: 56px;
+
+    /* #001EB9 */
+
+    /* background: #001EB9; */
+    /* btn-shadow blue */
+
+    box-shadow: 4px 4px 30px rgba(93, 169, 185, 0.2);
+    border-radius: 10px;
+    border-color: #001EB9;
+}

@@ -5,7 +5,7 @@ import Header from '../header/header'
 export default function mainPage() {
   return (
     <div className='container'>
-      <Header value={"PRODUCTS"}/>
+      <Header value={"PRODUCTS"} isShow={false}/>
     </div>
   )
 }

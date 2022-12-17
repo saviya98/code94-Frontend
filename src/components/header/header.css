@@ -63,3 +63,16 @@
 .searchbar-allingment {
     margin-left: -20%;
 }
+
+.topic-flex {
+    position: absolute;
+    display: flex;
+}
+
+.icon-arrow {
+    background-image : url(../../assets/arrow.svg);
+    background-size: cover;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+}

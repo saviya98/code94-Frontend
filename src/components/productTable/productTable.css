@@ -1,0 +1,61 @@
+thead th{
+    color: #001EB9;
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+}
+
+tbody td{
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    color: #162427;
+    vertical-align: middle;
+}
+
+.icon-delete{
+    background-image : url(../../assets/delete-icon.svg);
+    background-size: cover;
+    display: inline-block;
+    height: 19.53px;
+    width: 18.75px;
+    cursor: pointer;
+}
+
+.icon-edit{
+    background-image : url(../../assets/edit-icon.svg);
+    background-size: cover;
+    display: inline-block;
+    height: 20.25px;
+    width: 20.25px;
+    
+    cursor: pointer;
+}
+
+.icon-fav{
+    background-image : url(../../assets/star.svg);
+    background-size: cover;
+    display: inline-block;
+    height: 21.33px;
+    width: 22.33px;
+    cursor: pointer;
+}
+
+.icon-group {
+    justify-content: space-between;
+}
+
+.icon-fav-clicked{
+    background-image : url(../../assets/starred.svg);
+    background-size: cover;
+    display: inline-block;
+    height: 21.33px;
+    width: 22.33px;
+    cursor: pointer;
+}
+
+img{
+    border-radius: 6px;
+}

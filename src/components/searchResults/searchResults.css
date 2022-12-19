@@ -1,0 +1,25 @@
+.container-alling{
+    margin-top: 18%;
+    position: absolute;
+    margin-left: 4%;
+    width: 90%;
+}
+
+.custom-list{
+    width: 100%;
+}
+
+h6 {
+    color:#001EB9;
+}
+
+small {
+    color: #162427;
+    font-size: 14px;
+}
+
+p{
+    color: #162427;
+    font-size: 19px;
+    font-weight: 700;
+}

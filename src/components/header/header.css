@@ -3,17 +3,11 @@
     top: 8px;
     right: 40px;
     display: flex;
-    /* primary-text/bold */
     font-family: 'Satoshi';
     font-style: normal;
     font-weight: 700;
     font-size: 19px;
     line-height: 26px;
-    /* identical to box height */
-
-
-    /* #162427 */
-    /* justify-items: center; */
     align-items: center;
     color: #162427;
 }
@@ -76,3 +70,4 @@
     height: 25px;
     width: 25px;
 }
+

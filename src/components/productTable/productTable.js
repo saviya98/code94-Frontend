@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import DeletePopup from "../deletePopUp/deletePopup";
 import "./productTable.css";
+import { deleteProduct } from "../../api/api";
+import { showDeleteModal } from "../../store/actions";
 
 export default function ProductTable() {
-    const [isFav,setIsFav] = useState(false);
+  const [isFav, setIsFav] = useState(false);
+  const dispatch = useDispatch();
+  const dataArray = useSelector((state) => state.AuthReducer.products);
+  console.log("DATASET", dataArray);
   const handleIconClick = (e) => {
     console.log(e.target.id);
     switch (e.target.id) {
@@ -12,12 +18,19 @@ export default function ProductTable() {
         break;
       case "deleteicon":
         // window.location = '';
-        <DeletePopup />
+        
         break;
       case "editicon":
-        window.location = './new-product';
+        window.location = "./new-product";
         break;
     }
+  };
+
+  const handleDelete = async(id) => {
+    <DeletePopup isShow={true}/>
+    dispatch(showDeleteModal(true));
+    console.log("USERID", id);
+    const response = await deleteProduct(id);
   };
   return (
     <div className="table-responsive">
@@ -32,36 +45,53 @@ export default function ProductTable() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td scope="row">#1234</td>
-            <td><img src="../../assets/product-img.png" width={66} height={66}/></td>
-            <td>Book</td>
-            <td>$</td>
-            <td>
-              <div className="icon-group">
-                <i
-                  className="icon-delete"
-                  id="deleteicon"
-                  onClick={handleIconClick}
-                ></i>
-                <i
-                  className="icon-edit"
-                  id="editicon"
-                  onClick={handleIconClick}
-                ></i>
-                {!isFav ?(<i
-                  className="icon-fav"
-                  onClick={handleIconClick}
-                  id="favicon"
-                ></i>):(<i
-                    className="icon-fav-clicked"
-                    onClick={handleIconClick}
-                    id="favicon"
-                  ></i>)}
-                
-              </div>
-            </td>
-          </tr>
+          {dataArray.length == 0 ? (
+            <div>
+              <h5>No data</h5>
+            </div>
+          ) : (
+            dataArray.data.map((item) => (
+              <tr key={item._id}>
+                <td scope="row">{item.sku}</td>
+                <td>
+                  <img
+                    src={`http://localhost:5000/${item.imagesArray[0].filePath}`}
+                    width={66}
+                    height={66}
+                  />
+                </td>
+                <td>{item.name}</td>
+                <td>${item.qty}</td>
+                <td>
+                  <div className="icon-group">
+                    <i
+                      className="icon-delete"
+                      id="deleteicon"
+                      onClick={() => handleDelete(item._id)}
+                    ></i>
+                    <i
+                      className="icon-edit"
+                      id="editicon"
+                      onClick={handleIconClick}
+                    ></i>
+                    {!isFav ? (
+                      <i
+                        className="icon-fav"
+                        onClick={handleIconClick}
+                        id="favicon"
+                      ></i>
+                    ) : (
+                      <i
+                        className="icon-fav-clicked"
+                        onClick={handleIconClick}
+                        id="favicon"
+                      ></i>
+                    )}
+                  </div>
+                </td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </div>

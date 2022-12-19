@@ -1,36 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import { Button, Modal } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { deleteProduct } from "../../api/api";
 
-export default function DeletePopup() {
+export default function DeletePopup({ isShow }) {
+  const [show, setShow] = useState(false);
+  setShow(isShow);
+  const handleClose = () => setShow(false);
+
+  const handleDelete = async() =>{
+    const response = await deleteProduct();
+  }
   return (
-    <div class="modal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">ARE YOU SURE?</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <p>You will not be able to undo this action if you proceed!</p>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <button type="button" class="btn btn-primary">
-              Delete
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>ARE YOU SURE?</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          You will not be able to undo this action if you proceed!
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={handleDelete}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 }
